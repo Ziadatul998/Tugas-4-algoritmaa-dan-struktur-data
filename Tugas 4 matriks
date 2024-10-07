@@ -1,0 +1,54 @@
+1).flowchart
+https://drive.google.com/file/d/1hlEe8eRqzdE9PuuDajKpPddvpgQsEPiN/view?usp=drivesdk
+
+2). pseuducode 
+Mulai
+Masukkan matriks A
+Masukkan matriks B
+Cek orde matriks A dan B
+Jika kolom A sama dengan baris B
+Hitung perkalian matriks A dan B
+Tampilkan hasil perkalian lainnya
+Tampilkan pesan error "matriks tidak dapat dikalikan"
+Selesai
+
+3).pyhton
+def multiply_matrices(A, B):
+    # Periksa ukuran matriks
+    if len(A[0]) != len(B):
+        return "Matriks tidak dapat dikalikan"
+
+    # Inisialisasi matriks hasil dengan nol
+    result = [[0 for _ in range(len(B[0]))] for _ in range(len(A))]
+
+    # Melakukan perkalian matriks
+    for i in range(len(A)):
+        for j in range(len(B[0])):
+            for k in range(len(B)):
+                result[i][j] += A[i][k] * B[k][j]
+
+    return result
+
+# Matriks 3x3
+A = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+B = [
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
+# Memanggil fungsi perkalian matriks
+result = multiply_matrices(A, B)
+
+# Menampilkan hasil
+if isinstance(result, str):
+    print(result)  # Jika hasil adalah pesan error
+else:
+    print("Hasil perkalian matriks:")
+    for row in result:
+        print(row)
